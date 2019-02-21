@@ -2,6 +2,7 @@ package ru.spsuace.homework2.collections.list;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import org.junit.Before;
@@ -234,16 +235,16 @@ public class DoubleLinkedListTest {
 
     @Test
     public void testIndexException() {
-        actualList.add(2, new TestObject(""));
-        actualList.set(2, new TestObject(""));
-        actualList.get(2);
-        actualList.remove(2);
-        actualList.add(0, new TestObject(""));
+        checkIndexExcepion(() -> actualList.add(2, new TestObject("")));
+        checkIndexExcepion(() -> actualList.set(2, new TestObject("")));
+        checkIndexExcepion(() -> actualList.get(2));
+        checkIndexExcepion(() -> actualList.remove(2));
+        checkIndexExcepion(() -> actualList.add(0, new TestObject("")));
 
-        actualList.add(2, new TestObject(""));
-        actualList.set(2, new TestObject(""));
-        actualList.get(2);
-        actualList.remove(2);
+        checkIndexExcepion(() -> actualList.add(2, new TestObject("")));
+        checkIndexExcepion(() -> actualList.set(2, new TestObject("")));
+        checkIndexExcepion(() ->  actualList.get(2));
+        checkIndexExcepion(() ->  actualList.remove(2));
     }
 
     private <T> void assertList(List<T> expected, DoubleLinkedList<T> actual) {
@@ -260,9 +261,9 @@ public class DoubleLinkedListTest {
         }
     }
 
-    private void checkIndexExcepion(Supplier<DoubleLinkedList> list) {
+    private void checkIndexExcepion(Runnable runnable) {
         try {
-            list.get();
+            runnable.run();
         } catch (IndexOutOfBoundsException e) {
             return;
         } catch (Exception other) {
