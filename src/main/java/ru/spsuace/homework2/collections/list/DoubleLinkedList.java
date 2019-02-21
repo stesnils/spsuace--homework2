@@ -5,6 +5,8 @@ import java.util.Iterator;
 /**
  * Реализовать двусвязный список, аналог LinkedList в java (то что я рассказывал на лекции)
  * Если не понятно, что должны возвращать методы, смотрите документацию интерфейсов List и Collection
+ * Если в метод передается индекс, которого не существует (за исключением, add(size(), obj)), то надо бросить ошибку:
+ * throw new IndexOutOfBoundsException()
  */
 public class DoubleLinkedList<T> implements Iterable<T> {
 
