@@ -1,5 +1,6 @@
 package ru.spsuace.homework2.collections.list;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -117,16 +118,15 @@ public class DoubleLinkedListTest {
         actualList.addFirst(new TestObject("str2"));
         actualList.addFirst(new TestObject("str3"));
         actualList.addFirst(new TestObject("str4"));
-        actualList.set(0, new TestObject("str5"));
-        actualList.set(4, new TestObject("str6"));
 
         expectedList.addFirst( new TestObject("str0"));
         expectedList.addFirst( new TestObject("str1"));
         expectedList.addFirst(new TestObject("str2"));
         expectedList.addFirst(new TestObject("str3"));
         expectedList.addFirst(new TestObject("str4"));
-        expectedList.set(0, new TestObject("str5"));
-        expectedList.set(4, new TestObject("str6"));
+
+        assertEquals(expectedList.set(0, new TestObject("str5")), actualList.set(0, new TestObject("str5")));
+        assertEquals(expectedList.set(4, new TestObject("str6")), actualList.set(4, new TestObject("str6")));
 
         assertList(expectedList, actualList);
         try {
@@ -177,7 +177,6 @@ public class DoubleLinkedListTest {
         actualList.addFirst(new TestObject("str4"));
         actualList.set(0, new TestObject("str2"));
         actualList.set(4, new TestObject("str6"));
-        actualList.remove(4);
 
         expectedList.addFirst( new TestObject("str0"));
         expectedList.addFirst( new TestObject("str1"));
@@ -186,7 +185,7 @@ public class DoubleLinkedListTest {
         expectedList.addFirst(new TestObject("str4"));
         expectedList.set(0,new TestObject( "str2"));
         expectedList.set(4, new TestObject("str6"));
-        expectedList.remove(4);
+        assertEquals(expectedList.remove(4), actualList.remove(4));
 
         assertList(expectedList, actualList);
 
@@ -230,6 +229,45 @@ public class DoubleLinkedListTest {
             actual[i++] = s;
         }
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void iteratorRemove() {
+        actualList.addFirst(new TestObject("str0"));
+        actualList.addFirst(new TestObject("str1"));
+        actualList.addFirst(new TestObject("str2"));
+        actualList.addFirst(new TestObject("str3"));
+        actualList.addFirst(new TestObject("str4"));
+        actualList.set(0, new TestObject("str2"));
+        actualList.set(4,new TestObject( "str6"));
+
+        expectedList.addFirst( new TestObject("str0"));
+        expectedList.addFirst( new TestObject("str1"));
+        expectedList.addFirst(new TestObject("str2"));
+        expectedList.addFirst(new TestObject("str3"));
+        expectedList.addFirst(new TestObject("str4"));
+        expectedList.set(0, new TestObject("str2"));
+        expectedList.set(4, new TestObject("str6"));
+
+
+
+        int i = 0;
+        for (Iterator<TestObject> it = expectedList.iterator(); it.hasNext(); ) {
+            TestObject s = it.next();
+            if (i++ == 4) {
+                it.remove();
+            }
+        }
+
+        i = 0;
+        for (Iterator<TestObject> it = actualList.iterator(); it.hasNext(); ) {
+            TestObject s = it.next();
+            if (i++ == 4) {
+                it.remove();
+            }
+        }
+
+        assertList(expectedList, actualList);
     }
 
     @Test
