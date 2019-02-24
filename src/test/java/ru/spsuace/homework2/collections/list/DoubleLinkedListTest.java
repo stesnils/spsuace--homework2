@@ -217,6 +217,7 @@ public class DoubleLinkedListTest {
         expectedList.addFirst(new TestObject("str4"));
         expectedList.set(0, new TestObject("str2"));
         expectedList.set(4, new TestObject("str6"));
+        expectedList.remove(4);
         int i = 0;
         TestObject[] expected = new TestObject[expectedList.size()];
         for (TestObject s : expectedList) {
