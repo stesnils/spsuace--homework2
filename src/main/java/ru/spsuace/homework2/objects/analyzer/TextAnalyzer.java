@@ -1,6 +1,5 @@
 package ru.spsuace.homework2.objects.analyzer;
 
-import java.util.Collection;
 
 /**
  * Базовый интерефейс фильтра, наследники этого интерефейса должны инкапсулировать в себе всю логику
@@ -19,7 +18,7 @@ public interface TextAnalyzer {
         return null;
     }
 
-    static TextAnalyzer createSpamAnalyzer(Collection<String> spam) {
+    static TextAnalyzer createSpamAnalyzer(String[] spam) {
         return null;
     }
 

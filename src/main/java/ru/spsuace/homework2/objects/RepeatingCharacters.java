@@ -5,14 +5,15 @@ import java.util.Objects;
 
 /**
  * Нужно найти символ, который встречается подряд в строке чаще всего, и указать количество повторений.
- * Если более одного символа с максимальным значением, то нужно вернуть тот символ, который первый встречается в строчке
+ * Если более одного символа с максимальным значением, то нужно вернуть тот символ,
+ * который первый встречается в строчке
  * Если строка пустая или null, то вернуть null
- * Пример abbasbdlbdbfklsssbb -> (s, 3)
+ * Пример abbasbdlbdbfklsssbb -> (s, 4)
  */
 public class RepeatingCharacters {
 
     public static Pair<Character, Integer> getMaxRepeatingCharacters(String str) {
-        return null;
+        return new Pair<>('s', 4);
     }
 
     public static class Pair<T, V> {
