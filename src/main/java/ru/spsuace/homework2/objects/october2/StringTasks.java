@@ -19,6 +19,7 @@ public class StringTasks {
 
 
     /**
+     * Дополнительно задание
      * Тоже самое, что и выше, но нельзя пользоваться функциями valueOf() и new Integer и тд
      */
     public static Number valueOf(String str) {
