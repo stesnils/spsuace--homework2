@@ -2,6 +2,8 @@ package ru.spsuace.homework2.objects.october2;
 
 import org.junit.Test;
 
+import ru.spsuace.homework2.objects.simple.MaxTask;
+
 import static org.junit.Assert.*;
 
 public class MaxTaskTest {

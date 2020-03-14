@@ -1,4 +1,4 @@
-package ru.spsuace.homework2.objects;
+package ru.spsuace.homework2.objects.simple;
 
 /**
  * Опишите иммутабельное комплексное число, с геттерами и методами toString()
