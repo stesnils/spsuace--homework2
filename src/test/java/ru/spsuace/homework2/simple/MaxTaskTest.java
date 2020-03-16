@@ -1,4 +1,4 @@
-package ru.spsuace.homework2.objects.october2;
+package ru.spsuace.homework2.simple;
 
 import org.junit.Test;
 
